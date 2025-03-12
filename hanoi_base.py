@@ -23,44 +23,31 @@ class Hanoi(Problem):
         return acts
 
     def actions2(self):
-        # acts = []
+        acts = []
         temp_acts = []
+        new_states = []
         inf_set = {math.inf}
         cur_state = self.initial
 
         temp_acts = self.actions(cur_state)
 
+        print("State 1: {}".format(cur_state))
         print("Actions 1: {}".format(temp_acts))
-        new_states = []
 
-        print()
+        # print()
 
-        # for n in range(len(temp_acts)):
-        print("Current: {}".format(cur_state))
-        temp_state = self.result(cur_state, temp_acts[0])
-        # print("Current: {}".format(cur_state))
-        print("Temporary 1: {}".format(temp_state))
-        new_states.append(temp_state)
-        temp_acts = self.actions(temp_state)
-        print("Actions 2.1: {}".format(temp_acts))
+        for n in range(len(temp_acts)):
+            print()
+            # print("Current: {}".format(cur_state))
+            temp_state = self.result(cur_state, temp_acts[n])
+            print("State 2.{}: {}".format(n+1, temp_state))
+            new_states.append(temp_state)
+            # temp_acts = self.actions(temp_state)
+            acts.append(self.actions(temp_state))
+            print("Actions 2.{}: {}".format(n+1,acts[n]))
 
-        print()
 
-        print("Current: {}".format(cur_state))
-        print("Action 2: {}".format(temp_acts[1]))
-        temp_state = self.result(cur_state, temp_acts[1])
-        # print(temp_state)
-        new_states.append(temp_state)
-        temp_acts = self.actions(temp_state)
-        print("Actions 2.2: {}".format(temp_acts))
-        print("Temporary 2: {}".format(temp_state))
-        # print(temp_acts)
-        # new_states.append(self.result(new_state, temp_acts[n]))
-        # temp_acts = self.actions(new_states[n])
-            # print(self.result(new_state, temp_acts[n]))
-
-        print()
-        print("New states: {}".format(new_states))
+        # print("New states: {}".format(new_states))
 
         # return acts
 
